@@ -1,0 +1,25 @@
+function reduce(state, action) {
+    switch (action.type) {
+        case 'move':
+            const {x, y} = action
+            if (state.legalMove(x, y))
+                return state.makeMove(x, y)
+            else
+                return state
+        case 'reset':
+            return state.clear()
+    }
+}
+
+function create_store(init_state) {
+    let state = init_state
+
+    function onAction(action) {
+        state = reduce(state, action)
+        this.render(state)
+    }
+
+    return { onAction, state: () => state }
+}
+
+export default create_store
