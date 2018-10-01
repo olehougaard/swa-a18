@@ -26,7 +26,7 @@
     </style>
     <script src="model.js"></script>
     <script src="view.js"></script>
-    <script src="controller.js"></script>
+    <script src="store.js"></script>
 </head>
 <body>
     <h1>Tic-tac-toe</h1>
@@ -36,18 +36,10 @@
 </body>
 <script>
     var model = model();
-    var controller = controller(model, 
-    (model, controller) => update(view(model)));
+    var store = create_store(model);
     function dispatch(action) {
-        switch (action.type) {
-            case 'move':
-                controller.clickBoard(action.x, action.y)
-                break;
-            case 'reset':
-                controller.clickReset()
-                break;
-        }
+        store.onAction(action)
     }
-    controller.showModel();
+    update(view(model))
 </script>
 </html>
