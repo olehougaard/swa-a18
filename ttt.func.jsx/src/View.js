@@ -6,9 +6,9 @@ const Message = (props) => {
   let winner = props.winner
   let player = props.player
   if (winner)
-      return <p>{winner.winner + ' won!'}</p>
+      return <p>{winner.winner} won!</p>
   else    
-      return <p>{'Your turn, ' + player}</p>
+      return <p>Your turn, {player}</p>
 }        
 
 const Board = ({ board, dispatch }) =>
