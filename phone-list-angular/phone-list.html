@@ -1,12 +1,12 @@
 <html ng-app='phoneApp'>
     <head>
-        <script language="javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+        <script language="javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
         <script language="javascript" src="model.js"></script>
         <script language="javascript" src="viewmodel.js"></script>
         <script language="javascript" src="components.js"></script>
     </head>
     <body ng-controller="PhoneController">
-        <input ng-model='model.filter'></model-input>
+        <input ng-model='model.filter'>
         <button ng-click="model.filter=''">Reset</button>
         <table>
             <tr ng-repeat="phone in model.phones">
