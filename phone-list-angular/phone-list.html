@@ -6,8 +6,12 @@
         <script language="javascript" src="components.js"></script>
     </head>
     <body ng-controller="PhoneController">
-        <model-input property-name='filter'></model-input>
+        <input ng-model='model.filter'></model-input>
         <button ng-click="model.filter=''">Reset</button>
-        <phone-table></phone-table>
+        <table>
+            <tr ng-repeat="phone in model.phones">
+                <td>{{phone.name()}}</td><td>{{phone.snippet()}}</td>
+            </tr>
+        <table>    
     </body>
 </html>
