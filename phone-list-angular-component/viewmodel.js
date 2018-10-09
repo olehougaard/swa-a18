@@ -4,7 +4,7 @@ function viewModel(model) {
 
     function updateFilter(_filter) {
         filter = _filter.toLowerCase()
-        phones = model.phones.filter(ph => ph.name().toLowerCase().includes(filter))
+        phones = model.phones.filter(ph => ph.name.toLowerCase().includes(filter))
     }
 
     const vm = { }

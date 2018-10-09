@@ -1,5 +1,11 @@
 function model() {
-    const phone = (name, snippet, age) => ({name: () => name, snippet: () => snippet, age: () => age})
+    const phone = (name, snippet, age) => {
+        const ph = {}
+        Object.defineProperty(ph, 'name', { get: () => name })
+        Object.defineProperty(ph, 'snippet', { get: () => snippet })
+        Object.defineProperty(ph, 'age', { get: () => age })
+        return ph
+    }
 
     let phones = [
         phone('Nexus S', 'Fast just got faster with Nexus S.', 1), 

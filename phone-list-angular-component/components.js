@@ -7,12 +7,14 @@ module.component('modelInput', {
         this.model = $model
     }]            
 })
-module.component('phoneTable', {
+module.component('objectTable', {
+    bindings: { propertyName: '@',
+                objectProperties: '<' },
     template:   '<table>' +
-                    '<tr ng-repeat="phone in $ctrl.model.phones">' +
-                        '<td>{{phone.name()}}</td><td>{{phone.snippet()}}</td>' +
+                    '<tr ng-repeat="obj in $ctrl.model[$ctrl.propertyName]">' +
+                        '<td ng-repeat="x in $ctrl.objectProperties">{{obj[x]}}</td>' +
                     '</tr>' +
-                '<table>',
+                '</table>',
     controller: ['$model', function ($model) {
         this.model = $model
     }]

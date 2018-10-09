@@ -8,6 +8,6 @@
     <body ng-controller="PhoneController">
         <model-input property-name='filter'></model-input>
         <button ng-click="model.filter=''">Reset</button>
-        <phone-table></phone-table>
+        <object-table property-name='phones' object-properties="['name', 'snippet']"></object-table>
     </body>
 </html>
