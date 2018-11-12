@@ -52,8 +52,8 @@
             const salary = prompt('Salary for new hire')
             if (salary) {
                 const headers = { 'Content-Type': 'application/json', Accept: 'application/json' }
-                const employee = await fetchJson('/employees', { method: 'POST', body: JSON.stringify({ salary, manager: false}) })
-                const person = await fetchJson('/persons/' + personId, { method: 'PATCH', body: JSON.stringify({ employeeId: employee.employeeId }) })
+                const employee = await fetchJson('/employees', { method: 'POST', body: JSON.stringify({ salary, manager: false}), headers })
+                const person = await fetchJson('/persons/' + personId, { method: 'PATCH', body: JSON.stringify({ employeeId: employee.employeeId }), headers })
                 dispatch({ type: 'hire', person, employee})
             }
         }
